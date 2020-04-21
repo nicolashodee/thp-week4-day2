@@ -25,7 +25,7 @@ class Player
 
   def attacks(player_b)
     attack_value = compute_damage
-    puts "bouyaka !!!"
+    puts "\e[5m bouyaka !!! \e[25m"
     puts "#{self.name} attaque #{player_b.name}"
     puts "Il/elle lui inflige #{attack_value} points de dommages"
     player_b.gets_damage(attack_value)
@@ -49,13 +49,13 @@ class HumanPlayer < Player
   def search_weapon
     dice = rand(1..6)
     if dice == 1
-      puts "C'est balo, t'as rien trouvé."
+      puts "\e[42m C'est balo, t'as rien trouvé."
     else
       if dice > @weapon_level
-        puts "Tu as trouvé une arme de niveau #{dice}, qui est meilleure arme que la tienne. Tu la prends !"
+        puts "Tu as trouvé une arme de niveau #{dice}, qui est meilleure arme que la tienne. Tu la prends ! \e[49m"
         @weapon_level = dice 
       else
-        puts "M@*#$, tu as seulement trouvé une arme de niveau #{dice}, qui est moins bien ou equivalente a la tienne. Tu la laisse. "
+        puts "M@*#$, tu as seulement trouvé une arme de niveau #{dice}, qui est moins bien ou equivalente a la tienne. Tu la laisse. \e[49m"
       end 
     end 
   end

@@ -1,7 +1,6 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'lib/game'
 require_relative 'lib/player'
 
 puts "------------------------------------------------"
@@ -18,13 +17,13 @@ player1 = Player.new("Pierre")
 player2 = Player.new("Paul")
 puts "------------------------------------------------"
 while (human_player.life_points > 0 && ( player1.life_points > 0 && player2.life_points > 0 ))
-  puts "------------ETAT---DES---LIEUX------------------"
+  puts "\e[41m------------ETAT---DES---LIEUX------------------\e[49m"
   human_player.show_state
   player1.show_state
   player2.show_state
   print "Pret pour faire un choix ? (appuie sur entree)"
   gets.chomp
-  puts "------------FAIS---TON---CHOIX--------------------"
+  puts "\e[44m------------FAIS---TON---CHOIX--------------------\e[49m"
   puts "a - chercher une meilleure arme
   s - chercher à se soigner 
   "
@@ -38,7 +37,7 @@ while (human_player.life_points > 0 && ( player1.life_points > 0 && player2.life
     puts "Erreur, retape ton choix :"
     choice = gets.chomp 
   end
-  
+
   if choice == "a"
     human_player.search_weapon 
   elsif choice == "s"
@@ -51,7 +50,7 @@ while (human_player.life_points > 0 && ( player1.life_points > 0 && player2.life
   end     
   
   
-  puts "Maintenant les autres joueurs t'attaquent. Pret(e) ? "
+  puts " \e[100mMaintenant les autres joueurs t'attaquent. Pret(e) ? \e[49m"
   gets.chomp 
   ennemies = [player1, player2]
   ennemies.each { |ennemy| 
